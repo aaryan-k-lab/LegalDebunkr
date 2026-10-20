@@ -1,0 +1,10 @@
+flask>=3.0
+gunicorn>=22.0
+python-dotenv>=1.0
+requests>=2.32
+azure-core>=1.30
+azure-ai-documentintelligence>=1.0.0
+openai>=1.40
+pytest>=8.0
+flask-limiter>=3.8
+redis>=5.0

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LegalDebunkr: legal documents in plain English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="top">
+    <h1>LegalDebunkr</h1>
+    <p>Upload a contract, lease, or terms of service. Get it back in words you'd use.</p>
+  </header>
+
+  <main>
+    <section id="intake" class="intake">
+      <div class="sample" aria-hidden="true">
+        <div class="legalese">The Lessee shall indemnify, defend, and hold harmless the Lessor from any and all claims arising out of the Lessee's use of the Premises.</div>
+        <div class="plain">If someone is hurt or something is damaged because of how you use the place, you cover the cost. Your landlord doesn't.</div>
+      </div>
+
+      <label id="drop" class="drop" tabindex="0">
+        <input id="file" type="file" accept=".pdf,.docx,.png,.jpg,.jpeg,.tiff,.bmp" hidden>
+        <strong>Drop a document here, or choose a file</strong>
+        <span>PDF, Word, or a photo of a page. Up to {{ max_mb }} MB.</span>
+      </label>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div id="results" hidden>
+      <section class="summary">
+        <div id="docmeta" class="docmeta"></div>
+        <p id="plain-summary" class="lede"></p>
+        <div id="warnings"></div>
+      </section>
+
+      <section class="grid2">
+        <div>
+          <h2>Who is involved</h2>
+          <ul id="parties" class="plainlist"></ul>
+          <h2>Dates and money</h2>
+          <dl id="dates" class="facts"></dl>
+        </div>
+        <div>
+          <h2>What you have to do</h2>
+          <ul id="must" class="plainlist"></ul>
+          <h2>What you get</h2>
+          <ul id="get" class="plainlist"></ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Things to watch</h2>
+        <div id="flags" class="flags"></div>
+      </section>
+
+      <section>
+        <h2>Section by section</h2>
+        <div class="colhead"><span>What it says</span><span>What it means</span></div>
+        <div id="sections"></div>
+      </section>
+
+      <section class="ask">
+        <h2>Ask about this document</h2>
+        <form id="ask-form" autocomplete="off">
+          <input id="question" type="text" placeholder="Can I end this early? What happens if I pay late?" aria-label="Your question">
+          <button type="submit">Ask</button>
+        </form>
+        <div id="answer" class="answer" hidden></div>
+      </section>
+
+      <section>
+        <h2>Questions worth asking a lawyer</h2>
+        <ul id="lawyer" class="plainlist"></ul>
+      </section>
+
+      <p id="disclaimer" class="disclaimer"></p>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

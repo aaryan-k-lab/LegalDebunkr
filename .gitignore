@@ -1,0 +1,26 @@
+# Secrets: never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Uploaded or sample documents (legal docs are sensitive)
+uploads/
+*.pdf
+*.docx
+!docs/**/*.pdf
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
